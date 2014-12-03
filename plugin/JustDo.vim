@@ -12,4 +12,4 @@ function! BufDo(command)
 
 	exe 'buffer ' . currId
 endfun
-command! -nargs=+ BufDo call BufDo(<q-args>)
+command! -nargs=+ -complete=command BufDo call BufDo(<q-args>)
