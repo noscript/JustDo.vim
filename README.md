@@ -12,9 +12,7 @@ Features:
 ```vim
 :BufDo echo bufname("%")
 :BufDo %s/old/new/g
-
-:TabDo NERDTree
-:TabDo cclose
+:TabDo NERDTreeClose | cclose
 ```
 
 ### Roadmap
