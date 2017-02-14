@@ -1,15 +1,22 @@
 JustDo.vim
 =========
 
-```E21: Cannot make changes, 'modifiable' is off``` is annoying. That's why there is now ```BufDo``` to skip non-modifiable buffers.
+Better versions of `:bufdo` and `:tabdo`.
+
+Features:
+* No `E21: Cannot make changes, 'modifiable' is off` for `:BufDo`.
+* Preserves current buffer and tab.
 
 ### Examples
 
 ```vim
 :BufDo echo bufname("%")
 :BufDo %s/old/new/g
+
+:TabDo NERDTree
+:TabDo cclose
 ```
 
 ### Roadmap
 
-Adding ```WinDo``` and ```TabDo```.
+Adding ```WinDo```.
