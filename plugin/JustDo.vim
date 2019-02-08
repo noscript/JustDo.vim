@@ -1,7 +1,7 @@
 " File: JustDo.vim
 " Author: Sergey Vlasov <sergey@vlasov.me>
-" Last Change: 2017-02-14
-" Version: 0.2
+" Last Change: 2019-02-08
+" Version: 0.3
 
 function! BufDo(command)
     let currBuf = bufnr("%")
@@ -19,7 +19,6 @@ function! BufDo(command)
 endfun
 command! -nargs=+ -complete=command BufDo call BufDo(<q-args>)
 
-
 function! TabDo(command)
     let currTab = tabpagenr()
 
@@ -32,3 +31,16 @@ function! TabDo(command)
     exe 'norm! ' . currTab . 'gt'
 endfun
 command! -nargs=+ -complete=command TabDo call TabDo(<q-args>)
+
+function! WinDo(command)
+    let currWin = winnr()
+
+    for i in range(winnr('$'))
+        let win = i + 1
+        call win_gotoid(win_getid(win))
+        exe a:command
+    endfor
+
+    call win_gotoid(win_getid(currWin))
+endfun
+command! -nargs=+ -complete=command WinDo call WinDo(<q-args>)

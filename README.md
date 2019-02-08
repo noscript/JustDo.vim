@@ -1,11 +1,11 @@
 JustDo.vim
 =========
 
-Better versions of `:bufdo` and `:tabdo`.
+Better versions of `:bufdo`, `:tabdo` and `:windo`
 
 Features:
 * No `E21: Cannot make changes, 'modifiable' is off` for `:BufDo`.
-* Preserves current buffer and tab.
+* Preserves current buffer, window and tab.
 
 ### Examples
 
@@ -13,8 +13,7 @@ Features:
 :BufDo echo bufname("%")
 :BufDo %s/old/new/g
 :TabDo NERDTreeClose | cclose
+:TabDo WinDo diffoff
+
 ```
 
-### Roadmap
-
-Adding ```WinDo```.
